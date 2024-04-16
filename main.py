@@ -42,7 +42,9 @@ with st.sidebar:
     nearshore_cb = col1.checkbox('Near Shore', value=True, help='Our near shore team are fluent English speakers located in Bogota, Columbia')
     offshore_cb = col2.checkbox('Off Shore', value=True, help='Our off shore team are fluent English speakers located in Pakistan')
 st.sidebar.title('Choose Project Priorities')
-project_area_names_complexity = st.sidebar.slider("Go To Market Strategy", min_value=1, max_value=5, help='Describe the level of planning needed to deliver the product' ,key='complex')
+project_area_names_complexity = st.sidebar.slider("Go To Market Strategy", min_value=1, max_value=5
+                                                  #, help='Describe the level of planning needed to deliver the product' 
+                                                  ,key='complex')
 with st.sidebar:
     if project_area_names_complexity ==1:
         st.sidebar.write('Proof of Concept')
@@ -55,7 +57,9 @@ with st.sidebar:
     else:
         st.write('Full Feature Launch')
 #    st.divider()
-project_area_names_innovate = st.sidebar.slider("Innovation & Process Maturity", min_value=1, max_value=5, help='Describe the need to be more Strategic or Tactical', key='innovate')
+project_area_names_innovate = st.sidebar.slider("Innovation & Process Maturity", min_value=1, max_value=5
+                                                #, help='Describe the need to be more Strategic or Tactical'
+                                                , key='innovate')
 with st.sidebar:
     if project_area_names_innovate ==1:
         st.write('Routine')
@@ -80,7 +84,9 @@ with st.sidebar:
 # else:
 #     st.sidebar.write('Large Investment Made')
 #st.divider()
-project_area_names_speed = st.sidebar.slider("Time To Deliver", min_value=1, max_value=5, help='Describe the amount of capacity to deliver the product', key='speed')
+project_area_names_speed = st.sidebar.slider("Time To Deliver", min_value=1, max_value=5
+                                             #, help='Describe the amount of capacity to deliver the product'
+                                             , key='speed')
 with st.sidebar:
     if project_area_names_speed ==1:
         st.sidebar.write('4-6 Weeks')
@@ -93,7 +99,9 @@ with st.sidebar:
     else:
         st.write('30+ Weeks')
 #    st.divider()
-project_area_names_expertise = st.sidebar.slider("Expertise Required", min_value=1, max_value=5, help='Skillset necessary for successful delivery of the initiative', key='expert')
+project_area_names_expertise = st.sidebar.slider("Expertise Required", min_value=1, max_value=5
+                                                 #, help='Skillset necessary for successful delivery of the initiative'
+                                                 , key='expert')
 with st.sidebar:
     if project_area_names_expertise <3:
         st.sidebar.write('Functional Expert')
@@ -101,7 +109,9 @@ with st.sidebar:
         st.write('Skilled Practictioner')
     else:
         st.write('Subject Matter Experts')
-project_area_names_laws = st.sidebar.slider("Laws & Regulations", min_value=1, max_value=5, help='Describe the barriers to using offshore due to the nature of the work', key='laws')
+project_area_names_laws = st.sidebar.slider("Laws & Regulations", min_value=1, max_value=5
+                                            #, help='Describe the barriers to using offshore due to the nature of the work'
+                                            , key='laws')
 with st.sidebar:
     if project_area_names_laws ==1:
         st.write('Lenient')
@@ -114,7 +124,9 @@ with st.sidebar:
     else:
         st.write('Restrictive')
 # st.divider()
-project_area_names_accessibility = st.sidebar.slider("Response Time", min_value=1, max_value=5, help='Communication promptness required', key="accessible")
+project_area_names_accessibility = st.sidebar.slider("Response Time", min_value=1, max_value=5
+                                                     #, help='Communication promptness required'
+                                                     , key="accessible")
 with st.sidebar:
     if project_area_names_accessibility ==1:
         st.write('Within 1-2 Business Days')
@@ -128,7 +140,9 @@ with st.sidebar:
         st.write('Fully accessible during Operating Hours')
 #st.divider()
 #project_area_names_criticallity = st.slider("Criticallity (Org Impact)", min_value=1, max_value=10, key='critical')
-project_area_names_tz = st.sidebar.slider("Timezone Coordination", min_value=1, max_value=5, help='Describe the need for resources to be time zone aligned' ,key='timezone')
+project_area_names_tz = st.sidebar.slider("Timezone Coordination", min_value=1, max_value=5
+                                          #, help='Describe the need for resources to be time zone aligned' 
+                                          ,key='timezone')
 with st.sidebar:
     if project_area_names_tz ==1:
         st.write('Minimal Overlap Required')
