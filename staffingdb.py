@@ -71,6 +71,20 @@ class ProjectAdd:
             off_shore_spread = 0
         else:
             off_shore_spread = ((1-(((6-self.time_to_market) + self.timezone + self.complexity + self.expertise + self.laws + self.availability + self.innovation)/7)/6)*.6) - 0.03
+        if self.nearshore_cb == True and self.offshore_cb == True:
+            on_shore_spread = on_shore_spread
+            near_shore_spread = near_shore_spread
+            off_shore_spread = off_shore_spread
+        elif self.nearshore_cb == False and self.offshore_cb == True:
+            on_shore_spread = on_shore_spread
+            off_shore_spread = off_shore_spread + near_shore_spread
+            near_shore_spread = 0
+        elif self.nearshore_cb == True and self.offshore_cb == False:
+            on_shore_spread = on_shore_spread
+            near_shore_spread = off_shore_spread + near_shore_spread
+            off_shore_spread = 0
+        else:
+            on_shore_spread = 1
         low_savings_calc = '{:.0%}'.format((1-(((on_shore_cost*on_shore_spread) + (off_shore_cost*off_shore_spread) + (near_shore_cost*near_shore_spread) )/ on_shore_cost))-0.05)
         high_savings_calc = '{:.0%}'.format((1-(((on_shore_cost*on_shore_spread) + (off_shore_cost*off_shore_spread) + (near_shore_cost*near_shore_spread) )/ on_shore_cost))+0.05) 
         return [[('On Shore',on_shore_spread), ('Off Shore',off_shore_spread) , ('Near Shore', near_shore_spread)],(low_savings_calc, high_savings_calc)]
