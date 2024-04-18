@@ -13,7 +13,7 @@ class ProjectAdd:
                  , cost
                  , time_to_market
                  , expertise
-                 , laws
+                 #, laws
                  #, criticallity
                  , availability
                  #, timezone
@@ -31,7 +31,7 @@ class ProjectAdd:
         #self.timezone = timezone
         self.complexity = complexity
         self.expertise = expertise
-        self.laws = laws
+        #self.laws = laws
         self.availability = availability
         self.innovation = innovation
         self.nearshore_cb = nearshore_cb

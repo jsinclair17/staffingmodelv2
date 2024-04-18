@@ -177,7 +177,7 @@ customer1 = stdb.ProjectAdd(
     , project_area_names_cost
     , project_area_names_speed
     , project_area_names_expertise
-    , project_area_names_laws
+    #, project_area_names_laws
     , project_area_names_accessibility
     #, project_area_names_tz
     #, project_area_names_criticallity
