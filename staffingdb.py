@@ -8,10 +8,9 @@ class ProjectAdd:
                  #, address
                  , projectname
                  , projecttype
-                 #, 
-                 #cost
                  , complexity
                  , innovation
+                 , cost
                  , time_to_market
                  , expertise
                  , laws
@@ -26,7 +25,7 @@ class ProjectAdd:
         #self.address = address
         self.projectname = projectname
         self.projecttype = projecttype
-        #self.cost = cost
+        self.cost = cost
         self.time_to_market = time_to_market
         #self.criticallity = criticallity
         self.timezone = timezone
@@ -62,15 +61,33 @@ class ProjectAdd:
         on_shore_cost = 210
         near_shore_cost = 140
         off_shore_cost = 110
-        on_shore_spread = ((((6-self.time_to_market) + self.timezone + self.complexity + self.expertise + self.laws + self.availability + self.innovation)/7)/6) + 0.05
-        if self.timezone >=4 or self.availability >=4 :
-            near_shore_spread = 1 - ((((6-self.time_to_market) + self.timezone + self.complexity + self.expertise + self.laws + self.availability + self.innovation)/7)/6) - 0.05
-        else:
-            near_shore_spread = ((1-(((6-self.time_to_market) + self.timezone + self.complexity + self.expertise + self.laws + self.availability + self.innovation)/7)/6)*.4) - 0.02
-        if self.timezone >=4 or self.availability >=4:
-            off_shore_spread = 0
-        else:
-            off_shore_spread = ((1-(((6-self.time_to_market) + self.timezone + self.complexity + self.expertise + self.laws + self.availability + self.innovation)/7)/6)*.6) - 0.03
+        on_shore_complex_wt = 0.22
+        off_shore_complex_wt = 0.07
+        near_shore_complex_wt = 0.07
+        on_shore_innovate_wt = 0.22
+        off_shore_innovate_wt = 0.07
+        near_shore_innovate_wt = 0.07
+        on_shore_speed_wt = 0.17
+        off_shore_speed_wt = 0.09
+        near_shore_speed_wt = 0.11
+        on_shore_expertise_wt = 0.17
+        off_shore_expertise_wt = 0.07
+        near_shore_expertise_wt = 0.07
+        on_shore_accessible_wt = 0.17
+        off_shore_accessible_wt = 0.09
+        near_shore_accessible_wt = 0.08
+        on_shore_cost_wt = 0.2
+        off_shore_cost_wt = 0.2
+        near_shore_cost_wt = 0.2
+        on_shore_score = on_shore_complex_wt(self.complexity + 1) + on_shore_innovate_wt(self.innovation) + on_shore_speed_wt(7-self.time_to_market) + on_shore_expertise_wt(self.expertise) + on_shore_accessible_wt(self.availability) + on_shore_cost_wt(7-self.cost)
+        near_shore_score =  near_shore_complex_wt(7-self.complexity) + near_shore_innovate_wt(6-self.innovation) + near_shore_speed_wt(self.time_to_market) + near_shore_expertise_wt(6-self.expertise) + near_shore_accessible_wt(self.availability) + near_shore_cost_wt(self.cost)
+        off_shore_score =  off_shore_complex_wt(7-self.complexity) + off_shore_innovate_wt(6-self.innovation) + off_shore_speed_wt(self.time_to_market) + off_shore_expertise_wt(6-self.expertise) + off_shore_accessible_wt(6-self.availability) + on_shore_cost_wt(self.cost)                                                                                                                                                                                                                           
+        on_shore_spread = on_shore_score/(on_shore_score + near_shore_score + off_shore_score)
+        near_shore_spread = near_shore_score/(on_shore_score + near_shore_score + off_shore_score)
+        off_shore_spread = off_shore_score/(on_shore_score + near_shore_score + off_shore_score)
+        if self.availability >=4:
+            near_shore_spread = (near_shore_score + off_shore_score)/(on_shore_score + near_shore_score + off_shore_score)
+            off_shore_spread = 0   
         if self.nearshore_cb == True and self.offshore_cb == True:
             on_shore_spread = on_shore_spread
             near_shore_spread = near_shore_spread

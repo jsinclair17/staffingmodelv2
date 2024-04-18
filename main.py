@@ -72,17 +72,16 @@ with st.sidebar:
     else:
         st.write('Disruptor')
 #st.divider()
-#project_area_names_cost = st.sidebar.slider("Savings", min_value=1, max_value=5, help='Your enagagment funding level has been allocated', key='cost')
-# if project_area_names_cost <3:
-#     st.sidebar.write('Conservative Spend')
-# elif project_area_names_cost >=3 and project_area_names_cost <5:
-#     st.sidebar.write('Business Case Required for Additional Spend')
-# elif project_area_names_cost >=5 and project_area_names_cost <7:
-#     st.sidebar.write('Discretionary Budget Available')
-# elif project_area_names_cost >=7 and project_area_names_cost <10:
-#     st.sidebar.write('Budget Contingency Available')
-# else:
-#     st.sidebar.write('Large Investment Made')
+project_area_names_cost = st.sidebar.slider("Savings", min_value=1, max_value=5
+                                            , help='Lower Scores Increase On-Shore Presence, While Higher Scores Reduce On-Shore Presence'
+                                            , key='cost')
+if project_area_names_cost <3:
+    if project_area_names_cost <3:
+        st.sidebar.write('Least Aggressive')
+    elif project_area_names_cost >=3 and project_area_names_cost <5:
+        st.write('Moderately Aggressive')
+    else:
+        st.write('Most Aggressive')
 #st.divider()
 project_area_names_speed = st.sidebar.slider("Time To Deliver", min_value=1, max_value=5
                                              #, help='Describe the amount of capacity to deliver the product'
@@ -124,8 +123,8 @@ with st.sidebar:
     else:
         st.write('Restrictive')
 # st.divider()
-project_area_names_accessibility = st.sidebar.slider("Response Time", min_value=1, max_value=5
-                                                     #, help='Communication promptness required'
+project_area_names_accessibility = st.sidebar.slider("Response Time Expectation", min_value=1, max_value=5
+                                                     , help='Indicates the expected response time for each team member, regardless of time zone'
                                                      , key="accessible")
 with st.sidebar:
     if project_area_names_accessibility ==1:
@@ -173,10 +172,9 @@ customer1 = stdb.ProjectAdd(
     #, customer_address
     , project_name
     , project_type
-    # , 
-    # project_area_names_cost
     , project_area_names_complexity
     , project_area_names_innovate
+    , project_area_names_cost
     , project_area_names_speed
     , project_area_names_expertise
     , project_area_names_laws
