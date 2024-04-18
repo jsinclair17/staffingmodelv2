@@ -83,21 +83,6 @@ if project_area_names_cost <3:
     else:
         st.write('Most Aggressive')
 #st.divider()
-project_area_names_speed = st.sidebar.slider("Time To Deliver", min_value=1, max_value=5
-                                             #, help='Describe the amount of capacity to deliver the product'
-                                             , key='speed')
-with st.sidebar:
-    if project_area_names_speed ==1:
-        st.sidebar.write('4-6 Weeks')
-    elif project_area_names_speed ==2:
-        st.write('6-12 Weeks')
-    elif project_area_names_speed ==3: 
-        st.write('12-20 Weeks')
-    elif project_area_names_speed ==4:
-        st.write('20-30 Weeks')
-    else:
-        st.write('30+ Weeks')
-#    st.divider()
 project_area_names_expertise = st.sidebar.slider("Expertise Required", min_value=1, max_value=5
                                                  #, help='Skillset necessary for successful delivery of the initiative'
                                                  , key='expert')
@@ -108,20 +93,20 @@ with st.sidebar:
         st.write('Skilled Practictioner')
     else:
         st.write('Subject Matter Experts')
-project_area_names_laws = st.sidebar.slider("Laws & Regulations", min_value=1, max_value=5
-                                            #, help='Describe the barriers to using offshore due to the nature of the work'
-                                            , key='laws')
-with st.sidebar:
-    if project_area_names_laws ==1:
-        st.write('Lenient')
-    elif project_area_names_laws ==2:
-        st.write('Moderate Oversight')
-    elif project_area_names_laws ==3:
-        st.write('Enhanced Oversight')
-    elif project_area_names_laws ==4:
-        st.write('Highly Regulated')
-    else:
-        st.write('Restrictive')
+# project_area_names_laws = st.sidebar.slider("Laws & Regulations", min_value=1, max_value=5
+#                                             #, help='Describe the barriers to using offshore due to the nature of the work'
+#                                             , key='laws')
+# with st.sidebar:
+#     if project_area_names_laws ==1:
+#         st.write('Lenient')
+#     elif project_area_names_laws ==2:
+#         st.write('Moderate Oversight')
+#     elif project_area_names_laws ==3:
+#         st.write('Enhanced Oversight')
+#     elif project_area_names_laws ==4:
+#         st.write('Highly Regulated')
+#     else:
+#         st.write('Restrictive')
 # st.divider()
 project_area_names_accessibility = st.sidebar.slider("Response Time Expectation", min_value=1, max_value=5
                                                      , help='Indicates the expected response time for each team member, regardless of time zone'
@@ -137,6 +122,21 @@ with st.sidebar:
         st.write('Within 2-4 hours during Operating Hours')
     else:
         st.write('Fully accessible during Operating Hours')
+project_area_names_speed = st.sidebar.slider("Time To Deliver", min_value=1, max_value=5
+                                             #, help='Describe the amount of capacity to deliver the product'
+                                             , key='speed')
+with st.sidebar:
+    if project_area_names_speed ==1:
+        st.sidebar.write('4-6 Weeks')
+    elif project_area_names_speed ==2:
+        st.write('6-12 Weeks')
+    elif project_area_names_speed ==3: 
+        st.write('12-20 Weeks')
+    elif project_area_names_speed ==4:
+        st.write('20-30 Weeks')
+    else:
+        st.write('30+ Weeks')
+#    st.divider()
 #st.divider()
 #project_area_names_criticallity = st.slider("Criticallity (Org Impact)", min_value=1, max_value=10, key='critical')
 # project_area_names_tz = st.sidebar.slider("Timezone Coordination", min_value=1, max_value=5
