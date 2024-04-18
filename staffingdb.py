@@ -16,7 +16,7 @@ class ProjectAdd:
                  , laws
                  #, criticallity
                  , availability
-                 , timezone
+                 #, timezone
                  , nearshore_cb
                  , offshore_cb
                 #, scalability
@@ -28,7 +28,7 @@ class ProjectAdd:
         self.cost = cost
         self.time_to_market = time_to_market
         #self.criticallity = criticallity
-        self.timezone = timezone
+        #self.timezone = timezone
         self.complexity = complexity
         self.expertise = expertise
         self.laws = laws

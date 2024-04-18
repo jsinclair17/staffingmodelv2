@@ -139,20 +139,20 @@ with st.sidebar:
         st.write('Fully accessible during Operating Hours')
 #st.divider()
 #project_area_names_criticallity = st.slider("Criticallity (Org Impact)", min_value=1, max_value=10, key='critical')
-project_area_names_tz = st.sidebar.slider("Timezone Coordination", min_value=1, max_value=5
-                                          #, help='Describe the need for resources to be time zone aligned' 
-                                          ,key='timezone')
-with st.sidebar:
-    if project_area_names_tz ==1:
-        st.write('Minimal Overlap Required')
-    elif project_area_names_tz ==2:
-        st.write('Overlap as requested')
-    elif project_area_names_tz ==3:
-        st.write('Adaptive Scheduling Required')
-    elif project_area_names_tz ==4:
-        st.write('Alignment Required for Most Deliverables')
-    else:
-        st.write('Required')
+# project_area_names_tz = st.sidebar.slider("Timezone Coordination", min_value=1, max_value=5
+#                                           #, help='Describe the need for resources to be time zone aligned' 
+#                                           ,key='timezone')
+# with st.sidebar:
+#     if project_area_names_tz ==1:
+#         st.write('Minimal Overlap Required')
+#     elif project_area_names_tz ==2:
+#         st.write('Overlap as requested')
+#     elif project_area_names_tz ==3:
+#         st.write('Adaptive Scheduling Required')
+#     elif project_area_names_tz ==4:
+#         st.write('Alignment Required for Most Deliverables')
+#     else:
+#         st.write('Required')
 #st.divider()
 
 
@@ -179,7 +179,7 @@ customer1 = stdb.ProjectAdd(
     , project_area_names_expertise
     , project_area_names_laws
     , project_area_names_accessibility
-    , project_area_names_tz
+    #, project_area_names_tz
     #, project_area_names_criticallity
 
 
